@@ -37,7 +37,8 @@ limitations under the License.
     </style>
   </head>
   <body unresolved class='fullbleed'>
-    <material-search class="fit"></material-search>
+    <material-search class="fit" id='search-elem'></material-search>
+    <material-search class="fit" id='filter-elem' filter></material-search>
 
     <paper-header-panel mode='standard' class='flex'>
       <paper-toolbar id="mainheader">
@@ -46,17 +47,32 @@ limitations under the License.
         <paper-icon-button id="searchbtn" icon="search" class="fade-on-drawer-open"
                           on-tap="toggleSearch"></paper-icon-button>
       </paper-toolbar>
+
+      <paper-toolbar id="filterheader">
+        <paper-icon-button id="navicon2" icon="menu" paper-drawer-toggle></paper-icon-button>
+        <span class="title flex">Filter demo</span>
+        <paper-icon-button id="filterbtn" icon="search" class="fade-on-drawer-open"
+                          on-tap="toggleFilter"></paper-icon-button>
+      </paper-toolbar>
     </paper-header-panel>
 
     <script>
-      var seedElement = document.querySelector('material-search');
+      var searchElem = document.querySelector('#search-elem');
+      var filterElem = document.querySelector('#filter-elem');
 
       document.querySelector('#searchbtn').addEventListener('click', function() {
-        seedElement.toggle();
+        searchElem.toggle();
+      });
+      document.querySelector('#filterbtn').addEventListener('click', function() {
+        filterElem.toggle();
       });
 
-      seedElement.addEventListener('search-change', function (event) {
+      searchElem.addEventListener('search-change', function (event) {
         alert("Searching for " + event.detail.value);
+      });
+
+      filterElem.addEventListener('search-change', function (event) {
+        console.log("Filter: " + event.detail.value);
       });
     </script>
 
