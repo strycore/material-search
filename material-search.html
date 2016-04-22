@@ -175,7 +175,6 @@ limitations under the License.
       * @param {Object} detail.query The search string.
       */
       _queryChanged: function() {
-        console.log("QUERY", this.query);
         if (this.query) {
           this.fire('search-change', {value: this.query});
           if(!this.filter) {
