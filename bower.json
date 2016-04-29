@@ -1,6 +1,6 @@
 {
   "name": "material-search",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "authors": [
     "Eric Bidelman <ebidel@gmail.com>",
     "Mathieu Comandon <strycore@gmail.com>"
@@ -19,7 +19,7 @@
     "/test/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.0",
+    "polymer": "Polymer/polymer#^1.4.0",
     "paper-input": "PolymerElements/paper-input#^1.1.11",
     "paper-icon-button": "PolymerElements/paper-icon-button#^1.0.7",
     "paper-header-panel": "PolymerElements/paper-header-panel#^1.1.5",
