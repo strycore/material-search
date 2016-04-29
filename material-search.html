@@ -90,7 +90,12 @@ limitations under the License.
         <input id="searchbox" placeholder="Search" class="flex"
               value="{{query::change}}"
               on-keyup="doSearch">
-        <paper-icon-button icon="av:mic" on-tap="getSpeechInput"></paper-icon-button>
+        <template is='dom-if' if='[[query]]'>
+          <paper-icon-button icon="cancel" on-tap="clearSearch"></paper-icon-button>
+        </template>
+        <template is='dom-if' if='[[!query]]'>
+          <paper-icon-button icon="av:mic" on-tap="getSpeechInput"></paper-icon-button>
+        </template>
       </paper-toolbar>
       <paper-menu on-iron-activate="onSelect">
         <template is="dom-repeat" items="{{previousSearches}}">
@@ -145,6 +150,10 @@ limitations under the License.
         if (this.active) {
           this.$.searchbox.focus();
         }
+      },
+
+      clearSearch: function(e) {
+        this.query = "";
       },
 
       getSpeechInput: function(e) {
