@@ -157,6 +157,8 @@ Search toolbar component based on the Material Design guidelines
       this.active = !this.active;
       if (this.active) {
         this.$.input.focus();
+      } else {
+        this.fire('material-search-exit');
       }
     },
 
